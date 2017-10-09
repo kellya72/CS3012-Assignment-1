@@ -1,3 +1,4 @@
+import BST.Node;
 
 public class LCA {
 public static class TreeNode {
@@ -23,4 +24,12 @@ public static TreeNode findLCA(TreeNode root, TreeNode a, TreeNode b){
 	}
 	return root;
 }
+private TreeNode put(TreeNode x, int val) {
+    if (x == null) return new TreeNode(val);
+    if      (val < x.data) x.left  = put(x.left, val);
+    else if (val > x.data) x.right = put(x.right,val);
+    else              x.data   = val;
+    return x;
+}
+
 }
