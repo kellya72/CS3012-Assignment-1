@@ -7,9 +7,11 @@ public class LCATest {
 	@Test
 	public void testFindLCA() {
 		LCA testTree = new LCA();
-        assertSame("Checking for correct lowest common ancestor when tree is empty", -1, testTree.findLCA(4,5));		
+        assertSame("Checking for correct lowest common ancestor when tree is empty", -1, testTree.findLCA(3,2));		
         testTree.r = new Node(1);
+        assertSame("Checking for correct lowest common ancestor when tree contains one value", 1, testTree.findLCA(1,1));	
         testTree.r.left = new Node(2);
+        assertSame("Checking for correct lowest common ancestor when tree is empty", 1, testTree.findLCA(1,2));	
         testTree.r.right = new Node(3);
         testTree.r.left.left = new Node(4);
         testTree.r.left.right = new Node(5);
