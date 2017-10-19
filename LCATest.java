@@ -16,6 +16,7 @@ public class LCATest {
         assertSame("Checking for correct lowest common ancestor when tree does not contain one of the nodes", -1, testTree.findLCA(11,2));		
         assertSame("Checking for correct lowest common ancestor when tree does not contain one of the nodes", -1, testTree.findLCA(1,6));		
         testTree.r.right = new Node(3);
+        assertSame("Checking for correct lowest common ancestor",1, testTree.findLCA(2,3));       
         testTree.r.left.left = new Node(4);
         testTree.r.left.right = new Node(5);
         testTree.r.right.left = new Node(6);
