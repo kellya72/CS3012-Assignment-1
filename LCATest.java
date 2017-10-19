@@ -20,7 +20,8 @@ public class LCATest {
         testTree.r.left.right = new Node(5);
         testTree.r.right.left = new Node(6);
         testTree.r.right.right = new Node(7);
-        assertSame("Checking for correct lowest common ancestor", 22, testTree.findLCA(4,5));
+        assertSame("Checking for correct lowest common ancestor",2, testTree.findLCA(4,5));
+        
 	}
 
 }
