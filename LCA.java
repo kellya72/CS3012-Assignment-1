@@ -17,16 +17,24 @@ public class LCA
     }
  
     private int findLCA(Node r, int no1, int no2) {
-    	//int number = 0;
         if (!findPath(r, no1, path1) || !findPath(r, no2, path2)) {
-            System.out.println((path1.size() > 0) ? "n1 is present" : "n1 is missing");
-            System.out.println((path2.size() > 0) ? "n2 is present" : "n2 is missing");
+            if(path1.size() > 0) {
+            	System.out.println("n1 is present"); 
+            }
+            if(!(path1.size()>0)){
+            	System.out.println("n1 is missing");
+            }
+            if(path2.size() > 0) {
+            	System.out.println("n2 is present"); 
+            }
+            if(!(path2.size()>0)){
+            	System.out.println("n2 is missing");
+            }
             return -1;
         }
  
         int index;
         for (index = 0; index < path1.size() && index < path2.size(); index++) {
-          //  System.out.println(path1.get(i) + " " + path2.get(i));
             if (!path1.get(index).equals(path2.get(index)))
             	break;
         }
