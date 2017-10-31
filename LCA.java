@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+
+
  
 
 
@@ -63,7 +65,29 @@ public class LCA
         }
  
         path.remove(path.size()-1);
- 
         return false;
     }
+    private static boolean cycle(ArrayList<Node> arrList, Node temp, ArrayList<Node> visited, ArrayList<Node> stack, boolean cycle)
+	{
+		visited.add(temp);
+		stack.add(temp);
+		int tempLength= temp.edges.size();
+		for(int index = 0; index < tempLength; index++)
+		{
+			Node n = (Node) temp.edges.get(index);
+			boolean nInVisited= visited.contains(n);
+			boolean nInStack= stack.contains(n);
+			if(!nInVisited) 
+			{
+				cycle = cycle || cycle(arrList, n, visited, stack, cycle);
+			}
+			else if(nInStack)
+			{
+				cycle = true;
+				return cycle;
+			}
+		}
+		stack.remove(temp);
+		return cycle;
+	}
 }
