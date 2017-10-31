@@ -3,6 +3,7 @@ import java.util.List;
 
 
 
+
 public class LCA
 {
  /*
@@ -21,8 +22,10 @@ public class LCA
     	if(arrList == null || a == null || b == null || arrList.size() == 0 ||!arrList.contains(a) || !arrList.contains(b) || !isAcyclic(arrList)){
     		return -1;
     	}
-    	
-    	
+    	ArrayList<Node> roots = new ArrayList<Node>();
+    	ArrayList<Node> ancestorList1 = new ArrayList<Node>();
+    	ArrayList<Node> ancestorList2 = new ArrayList<Node>();
+    	ArrayList<Node> commonAncestors = new ArrayList<Node>();
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
