@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
  
 
 
@@ -90,4 +92,23 @@ public class LCA
 		stack.remove(temp);
 		return cycle;
 	}
+    public static boolean isAcyclic(ArrayList<Node> arrList)
+    {
+		if(arrList == null){
+			return true;
+		}
+		for(int index = 0; index < arrList.size(); index++)
+		{
+			ArrayList<Node> stack = new ArrayList<Node>();
+			ArrayList<Node> visited = new ArrayList<Node>();
+			Node current = arrList.get(index);
+			boolean cycle= false;
+			cycle = cycle(arrList, current, visited, stack, cycle);
+			if(cycle)
+			{
+				return false;
+			}
+		}
+        return true;
+    }
 }
