@@ -34,6 +34,12 @@ public class LCA
         		roots.add(n);
         	}
         }
+    	 ancestorList1.add(a);
+	     ancestorList2.add(b);
+	        for(int i = 0; i < roots.size(); i++)
+	        {
+	        	compareAncestors(roots.get(i), ancestorList1, ancestorList2);
+	        }
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
