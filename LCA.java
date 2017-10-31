@@ -3,15 +3,9 @@ import java.util.List;
 
 
 
-
-
-
- 
-
-
 public class LCA
 {
- 
+ /*
     Node r;
     private List<Integer> path1 = new ArrayList<>();  
     private List<Integer> path2 = new ArrayList<>();
@@ -21,10 +15,14 @@ public class LCA
         path2.clear();
         return findLCA(r, no1, no2);
     }
- 
-    private int findLCA(ArrayList<Node> nodeList, Node a, Node b) {
-        
- 
+ */
+    private int findLCA(ArrayList<Node> arrList, Node a, Node b) {
+    	
+    	if(arrList == null || a == null || b == null || arrList.size() == 0 ||!arrList.contains(a) || !arrList.contains(b) || !isAcyclic(arrList)){
+    		return -1;
+    	}
+    	
+    	
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
