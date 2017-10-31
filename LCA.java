@@ -26,6 +26,14 @@ public class LCA
     	ArrayList<Node> ancestorList1 = new ArrayList<Node>();
     	ArrayList<Node> ancestorList2 = new ArrayList<Node>();
     	ArrayList<Node> commonAncestors = new ArrayList<Node>();
+    	for(int index = 0; index < arrList.size(); index++)
+        {
+        	if(arrList.get(index).in == 0)
+        	{
+        		Node n= arrList.get(index);
+        		roots.add(n);
+        	}
+        }
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
