@@ -4,13 +4,14 @@ import java.util.List;
 
 
 
+
  
 
 
 public class LCA
 {
  
-    Node r;
+   /* Node r;
     private List<Integer> path1 = new ArrayList<>();  
     private List<Integer> path2 = new ArrayList<>();
  
@@ -68,7 +69,7 @@ public class LCA
  
         path.remove(path.size()-1);
         return false;
-    }
+    }*/
     private static boolean cycle(ArrayList<Node> arrList, Node temp, ArrayList<Node> visited, ArrayList<Node> stack, boolean cycle)
 	{
 		visited.add(temp);
@@ -110,5 +111,25 @@ public class LCA
 			}
 		}
         return true;
+    }
+    public static void compareAncestors(Node root, ArrayList<Node> ancestorList1, ArrayList<Node> ancestorList2)
+    {
+    	if(root.edges == null){
+    		return;
+    	}
+    	
+    	for(int index = 0; index < root.edges.size(); index++)
+    	{
+    		Node temp = (Node) root.edges.get(index);
+    		if(!(ancestorList1.contains(temp) || ancestorList2.contains(temp))) {
+    			compareAncestors(temp, ancestorList1, ancestorList2);
+    		}
+    		if(ancestorList1.contains(temp)) {
+    			ancestorList1.add(root);
+    		}
+    		if(ancestorList2.contains(temp)) {
+    			ancestorList2.add(root);	
+    		}
+    	}
     }
 }
