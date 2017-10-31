@@ -4,6 +4,8 @@ import java.util.List;
 
 
 
+
+
 public class LCA
 {
  /*
@@ -40,11 +42,23 @@ public class LCA
 	        {
 	        	compareAncestors(roots.get(i), ancestorList1, ancestorList2);
 	        }
+	   
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
     {
        
+    }
+    public static ArrayList<Node> compare(ArrayList<Node> list1, ArrayList<Node> list2) {
+		ArrayList<Node> listOfSameNodes = new ArrayList<Node>();
+        for (int index=0; index<list1.size(); index++) {
+        	Node n = list1.get(index);
+            if(list2.contains(n)) {
+                listOfSameNodes.add(n);
+            }
+        }
+
+        return listOfSameNodes;
     }
     private static boolean cycle(ArrayList<Node> arrList, Node temp, ArrayList<Node> visited, ArrayList<Node> stack, boolean cycle)
 	{
