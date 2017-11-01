@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 
@@ -163,5 +164,9 @@ public class LCA
 		}
 		return true;
 	}
+    private String listToString(ArrayList<Node> list){
+    	String listString = list.stream().map(Object::toString).collect(Collectors.joining(", "));
+    	return listString;
+    }
 
 }
