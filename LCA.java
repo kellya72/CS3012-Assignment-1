@@ -8,7 +8,7 @@ import java.util.List;
 
 public class LCA
 {
- /*
+	/*
     Node r;
     private List<Integer> path1 = new ArrayList<>();  
     private List<Integer> path2 = new ArrayList<>();
@@ -27,7 +27,7 @@ public class LCA
     	ArrayList<Node> roots = new ArrayList<Node>();
     	ArrayList<Node> ancestorList1 = new ArrayList<Node>();
     	ArrayList<Node> ancestorList2 = new ArrayList<Node>();
-    	ArrayList<Node> commonAncestors = new ArrayList<Node>();
+    	ArrayList<Node> ancestorsShared = new ArrayList<Node>();
     	for(int index = 0; index < arrList.size(); index++)
         {
         	if(arrList.get(index).in == 0)
@@ -38,17 +38,21 @@ public class LCA
         }
     	 ancestorList1.add(a);
 	     ancestorList2.add(b);
-	        for(int i = 0; i < roots.size(); i++)
+	     for(int i = 0; i < roots.size(); i++)
 	        {
 	        	compareAncestors(roots.get(i), ancestorList1, ancestorList2);
 	        }
-	   
+	     ancestorsShared = compare(ancestorList1, ancestorList2);
+	     if(ancestorsShared.size() == 0){
+	    	 return -1;
+	     }
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
     {
        
     }
+    
     public static ArrayList<Node> compare(ArrayList<Node> list1, ArrayList<Node> list2) {
 		ArrayList<Node> listOfSameNodes = new ArrayList<Node>();
         for (int index=0; index<list1.size(); index++) {
@@ -60,6 +64,7 @@ public class LCA
 
         return listOfSameNodes;
     }
+    
     private static boolean cycle(ArrayList<Node> arrList, Node temp, ArrayList<Node> visited, ArrayList<Node> stack, boolean cycle)
 	{
 		visited.add(temp);
@@ -122,4 +127,5 @@ public class LCA
     		}
     	}
     }
+
 }
