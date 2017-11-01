@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import dummy.node2;
+
 
 
 
@@ -46,6 +48,7 @@ public class LCA
 	     if(ancestorsShared.size() == 0){
 	    	 return -1;
 	     }
+	     
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
@@ -127,5 +130,18 @@ public class LCA
     		}
     	}
     }
+    private static boolean check(ArrayList<Node> ancestorsShared) 
+    {
+		for(int index = 0; index < ancestorsShared.size(); index++)
+		{
+			Node temp = ancestorsShared.get(index);
+			ArrayList<Node> tempNodes = temp.edges;
+			if(compare(ancestorsShared, tempNodes).size() != 0)
+    		{
+    			return false;
+    		}
+		}
+		return true;
+	}
 
 }
