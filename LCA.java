@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class LCA
 {
-    private String findLCA(ArrayList<Node> arrList, Node a, Node b) {
+    public static ArrayList<Node> findLCA(ArrayList<Node> arrList, Node a, Node b) {
     	
     	if(arrList == null || a == null || b == null || arrList.size() == 0 ||!arrList.contains(a) || !arrList.contains(b) || !isAcyclic(arrList)){
     		return null;
@@ -44,7 +44,7 @@ public class LCA
 	        		
 	        		if(check(ancestorsShared))
 	            	{
-	            		return listToString(ancestorsShared);
+	            		return ancestorsShared;
 	            	}
 	        		//if its descendants are in the list of common ancestors then remove it as the descendant is a lower common ancestor
 	            	else
@@ -56,7 +56,7 @@ public class LCA
 	            	}
 	        	}	
 	        }
-	        return listToString(ancestorsShared);  
+	        return ancestorsShared;  
     }
     
     public static ArrayList<Node> compare(ArrayList<Node> list1, ArrayList<Node> list2) {
@@ -146,7 +146,7 @@ public class LCA
 		}
 		return true;
 	}
-    private String listToString(ArrayList<Node> list){
+    public static String listToString(ArrayList<Node> list){
     	String listString = list.stream().map(Object::toString).collect(Collectors.joining(", "));
     	return listString;
     }
