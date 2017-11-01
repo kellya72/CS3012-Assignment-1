@@ -21,10 +21,10 @@ public class LCA
         return findLCA(r, no1, no2);
     }
  */
-    private int findLCA(ArrayList<Node> arrList, Node a, Node b) {
+    private String findLCA(ArrayList<Node> arrList, Node a, Node b) {
     	
     	if(arrList == null || a == null || b == null || arrList.size() == 0 ||!arrList.contains(a) || !arrList.contains(b) || !isAcyclic(arrList)){
-    		return -1;
+    		return null;
     	}
     	ArrayList<Node> roots = new ArrayList<Node>();
     	ArrayList<Node> ancestorList1 = new ArrayList<Node>();
@@ -46,7 +46,7 @@ public class LCA
 	        }
 	     ancestorsShared = compare(ancestorList1, ancestorList2);
 	     if(ancestorsShared.size() == 0){
-	    	 return -1;
+	    	 return null;
 	     }
 	     while(ancestorsShared.size() != 1)
 	        {
@@ -55,7 +55,7 @@ public class LCA
 	        		
 	        		if(check(ancestorsShared))
 	            	{
-	            		return ancestorsShared;
+	            		return listToString(ancestorsShared);
 	            	}
 	        		//if its descendants are in the list of common ancestors then remove it as the descendant is a lower common ancestor
 	            	else
@@ -67,9 +67,7 @@ public class LCA
 	            	}
 	        	}	
 	        }
-	        return ancestorsShared;
-	        
-	     
+	        return listToString(ancestorsShared);  
     }
  
     private boolean findPath(Node r, int n, List<Integer> path)
