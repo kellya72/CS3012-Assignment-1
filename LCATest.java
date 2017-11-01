@@ -27,7 +27,27 @@ public class LCATest {
         assertSame("Checking for correct lowest common ancestor",3, testTree.findLCA(3,6));
         assertSame("Checking for correct lowest common ancestor",3, testTree.findLCA(3,7));
         assertSame("Checking for correct lowest common ancestor",-1, testTree.findLCA(8,5));
+        assertSame("Checking for correct lowest common ancestor",-1, testTree.findLCA(8,7));
         assertSame("Checking for correct lowest common ancestor",-1, testTree.findLCA(4,9));
+        
 	}
-
+	
+	public void testCompare(){
+		
+	}
+	public void testCycle(){
+		
+	}
+	public void testIsAcyclical(){
+		
+	}
+	public void testCompareAncestors(){
+		
+	}
+	public void testCheck(){
+		
+	}
+	public void testListToString(){
+		
+	}
 }
