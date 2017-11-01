@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import dummy.node2;
 
 
 
@@ -48,6 +47,27 @@ public class LCA
 	     if(ancestorsShared.size() == 0){
 	    	 return -1;
 	     }
+	     while(ancestorsShared.size() != 1)
+	        {
+	        	for(int index = 0; index < ancestorsShared.size(); index++)
+	        	{
+	        		
+	        		if(check(ancestorsShared))
+	            	{
+	            		return ancestorsShared;
+	            	}
+	        		//if its descendants are in the list of common ancestors then remove it as the descendant is a lower common ancestor
+	            	else
+	            	{
+	            		if(compare(ancestorsShared, ancestorsShared.get(index).edges).size() != 0)
+	            		{
+	            			ancestorsShared.remove(index);
+	            		}
+	            	}
+	        	}	
+	        }
+	        return ancestorsShared;
+	        
 	     
     }
  
