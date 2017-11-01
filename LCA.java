@@ -10,17 +10,6 @@ import java.util.stream.Collectors;
 
 public class LCA
 {
-	/*
-    Node r;
-    private List<Integer> path1 = new ArrayList<>();  
-    private List<Integer> path2 = new ArrayList<>();
- 
-   int findLCA(int no1, int no2) {
-        path1.clear();
-        path2.clear();
-        return findLCA(r, no1, no2);
-    }
- */
     private String findLCA(ArrayList<Node> arrList, Node a, Node b) {
     	
     	if(arrList == null || a == null || b == null || arrList.size() == 0 ||!arrList.contains(a) || !arrList.contains(b) || !isAcyclic(arrList)){
@@ -68,11 +57,6 @@ public class LCA
 	        	}	
 	        }
 	        return listToString(ancestorsShared);  
-    }
- 
-    private boolean findPath(Node r, int n, List<Integer> path)
-    {
-       
     }
     
     public static ArrayList<Node> compare(ArrayList<Node> list1, ArrayList<Node> list2) {
