@@ -1,19 +1,29 @@
 import java.util.ArrayList;
 
-import dummy.node2;
+
 
 
 class Node {
-    int data;
+	int data;
     public ArrayList<Node> edges;
-    public int key;
+    public String key;
     public int in;
     public int out;
-    Node(int data, int key) {
+    Node(String key, int data) {
         this.data = data;
         this.key = key;
         edges = new ArrayList<Node>();
         in = 0;
         out = edges.size();
     }
+    public void connect(Node child)
+    {
+        if(child != null)
+        {
+            this.edges.add(child);
+            child.in++;
+        }
+        
+    }
+
 }
