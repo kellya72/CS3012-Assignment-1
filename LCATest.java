@@ -69,6 +69,8 @@ public class LCATest {
 	    list.add(f);
 	    lca.add(f);
 	    assertEquals("When there is more than one LCA", lca, LCA.findLCA(list, d, e));
+	    c.connect(a);
+	    assertEquals("When graph is a cycle", null, LCA.findLCA(list, d, e));
 	}
 	@Test
 	public void testCompare(){
