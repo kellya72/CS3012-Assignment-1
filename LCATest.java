@@ -46,12 +46,24 @@ public class LCATest {
 	    list.add(b);
 	    Node c= new Node("c",3);
 	    a.connect(c);
+	    /*
+	  			A
+	  		/      \
+	  	   B        C
+	    */
 	    assertEquals("When node is not in list", null, LCA.findLCA(list,a ,c));
 	    assertEquals("When node is not in list", null, LCA.findLCA(list,c ,b));
 	    list.add(c);
 	    Node d = new Node("d",4);
 	    b.connect(d);
 	    list.add(d);
+	    /*
+			A
+		/      \
+	   B        C
+	  /
+	D
+*/
 	    ArrayList<Node> lca = new ArrayList<Node>();
 	    lca.add(a);
 	    assertEquals("Only one LCA", lca, LCA.findLCA(list, b, c));
@@ -60,6 +72,13 @@ public class LCATest {
 	    Node e = new Node("e",5);
 	    b.connect(e);
 	    list.add(e);
+	    /*
+		A
+	/      \
+   B        C
+  / \
+D    E
+*/
 	    lca.remove(a);
 	    lca.add(b);
 	    assertEquals("When LCA is not the root", lca, LCA.findLCA(list, d, e));
@@ -71,6 +90,7 @@ public class LCATest {
 	    assertEquals("When there is more than one LCA", lca, LCA.findLCA(list, d, e));
 	    c.connect(a);
 	    assertEquals("When graph is a cycle", null, LCA.findLCA(list, d, e));
+
 	}
 	@Test
 	public void testCompare(){
