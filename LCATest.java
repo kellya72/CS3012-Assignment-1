@@ -63,8 +63,12 @@ public class LCATest {
 	    lca.remove(a);
 	    lca.add(b);
 	    assertEquals("When LCA is not the root", lca, LCA.findLCA(list, d, e));
-
-	
+	    Node f = new Node("f",6);
+	    f.connect(d);
+	    f.connect(e);
+	    list.add(f);
+	    lca.add(f);
+	    assertEquals("When there is more than one LCA", lca, LCA.findLCA(list, d, e));
 	}
 	@Test
 	public void testCompare(){
