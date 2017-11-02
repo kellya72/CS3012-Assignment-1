@@ -80,7 +80,8 @@ public class LCATest {
 	}
 	@Test
 	public void testIsAcyclical(){
-		
+		ArrayList<Node> list = null;
+		assertEquals("Testing when list is empty", true, LCA.isAcyclic(list));
 	}
 	@Test
 	public void testCompareAncestors(){
