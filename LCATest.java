@@ -54,10 +54,15 @@ public class LCATest {
 	    list.add(d);
 	    ArrayList<Node> lca = new ArrayList<Node>();
 	    lca.add(a);
-	    assertEquals("When node is not in list", lca, LCA.findLCA(list, b, c));
-	    assertEquals("When node is not in list", lca, LCA.findLCA(list, d, c));
+	    assertEquals("Only one LCA", lca, LCA.findLCA(list, b, c));
+	    assertEquals("Only one LCA", lca, LCA.findLCA(list, d, c));
+	    assertEquals("When one of the given nodes is the LCA", lca, LCA.findLCA(list, a, c));
 	    Node e = new Node("e",5);
-
+	    b.connect(e);
+	    list.add(e);
+	    lca.remove(a);
+	    lca.add(b);
+	    assertEquals("When LCA is not the root", lca, LCA.findLCA(list, d, e));
 
 	
 	}
