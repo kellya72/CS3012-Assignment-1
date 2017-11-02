@@ -32,6 +32,7 @@ public class LCATest {
         assertSame("Checking for correct lowest common ancestor",-1, testTree.findLCA(8,7));
         assertSame("Checking for correct lowest common ancestor",-1, testTree.findLCA(4,9));
        */ 
+		
 		Node a = null;
 		Node b= null;
 		ArrayList<Node> list = new ArrayList<Node>();
@@ -39,7 +40,26 @@ public class LCATest {
 	    a= new Node("a",1);
 	    assertEquals("When one node and list are null", null, LCA.findLCA(list,a ,b));
 	    b= new Node("b",2);
+	    a.connect(b);
 	    assertEquals("When the list is null", null, LCA.findLCA(list,a ,b));
+	    list.add(a);
+	    list.add(b);
+	    Node c= new Node("c",3);
+	    a.connect(c);
+	    assertEquals("When node is not in list", null, LCA.findLCA(list,a ,c));
+	    assertEquals("When node is not in list", null, LCA.findLCA(list,c ,b));
+	    list.add(c);
+	    Node d = new Node("d",4);
+	    b.connect(d);
+	    list.add(d);
+	    ArrayList<Node> lca = new ArrayList<Node>();
+	    lca.add(a);
+	    assertEquals("When node is not in list", lca, LCA.findLCA(list, b, c));
+	    assertEquals("When node is not in list", lca, LCA.findLCA(list, d, c));
+	    Node e = new Node("e",5);
+
+
+	
 	}
 	@Test
 	public void testCompare(){
